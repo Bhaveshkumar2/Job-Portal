@@ -6,6 +6,12 @@ document.getElementById('applyButton').addEventListener('click', function() {
     const duration = document.getElementById('duration').value;
     const salary = document.getElementById('salary').value;
 
+    
+    if (!name || !skills || !jobType || !duration || !salary) {
+        alert('Please fill out all the fields.');
+        return; // Stop the function if validation fails
+    }
+
     // Create the mailto link
     const hrEmail = 'hr@cehpoint.co.in';
     const subject = `Application for ${jobType} - ${name}`;
