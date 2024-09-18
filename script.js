@@ -1,5 +1,5 @@
+
 document.getElementById('applyButton').addEventListener('click', function() {
-    // Collect form data
     const name = document.getElementById('name').value;
     const skills = document.getElementById('skills').value;
     const jobType = document.getElementById('jobType').value;
@@ -28,4 +28,10 @@ document.getElementById('applyButton').addEventListener('click', function() {
 
     // Redirect to mail client
     window.location.href = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
+document.getElementById('navbarToggle').addEventListener('click', function() {
+    const menu = document.getElementById('item');
+    menu.classList.toggle('active');
+    console.log('Menu class list:', menu.classList);
 });

@@ -7,8 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg">
+         <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="https://i0.wp.com/services.cehpoint.co.in/wp-content/uploads/2023/03/Cehpoint-logo-1.png?w=152&ssl=1" alt="Cehpoint Logo">
+            </a>
+            <button class="navbar-toggle" id="navbarToggle">
+                ☰
+            </button>
+            <ul class="navbar-menu" id="item">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+
+            <a href="#" class="navbar-btn">Careers</a>
+        </div>
+
+    </nav>
    
-    <div class="form-container">
+     <div class="form-container">
         <h1>Apply for Internship/Job</h1>
         <form id="applicationForm">
             <label for="name">Name:</label>
@@ -19,9 +39,18 @@
 
             <label for="jobType">Internship/Job Type:</label>
             <select id="jobType" required>
-                <option value="Software Development">Software Development</option>
-                <option value="Sales">Sales</option>
-                <option value="Marketing">Marketing</option>
+                <option value="">Select Option</option>
+                <option value="Software Development"> Secure Software Developer</option>
+                <option value="Website Development">Secure Website Developer</option>
+                <option value="Cyber Security">Chef Security Officer</option>
+                <option value="Application Developer">Secure Application Developer</option>
+                <option value="Frontend Developer">Secure Frontend Developer</option>
+                <option value="WordPress Developer">WordPress Developer Intern</option>
+                <option value="Flutter Developer">Flutter Developer Intern</option>
+                <option value="UI/UX Developer">UI/UX Designer Intern</option>
+                <option value="Java Developer">Java Development Intern</option>
+                <option value="Kotlin Developer">Kotlin Development Intern</option>
+                <option value="React Developer">React Development Intern</option>
             </select>
 
             <label for="duration">Internship Duration:</label>
@@ -32,7 +61,7 @@
 
             <button type="button" id="applyButton">Apply</button>
         </form>
-    </div>
+    </div> 
 
     <script src="script.js"></script>
 </body>
