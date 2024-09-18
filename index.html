@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship/Job Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg">
+   
+    <div class="form-container">
+        <h1>Apply for Internship/Job</h1>
+        <form id="applicationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" placeholder="Enter your skills" required>
+
+            <label for="jobType">Internship/Job Type:</label>
+            <select id="jobType" required>
+                <option value="Software Development">Software Development</option>
+                <option value="Sales">Sales</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+
+            <label for="duration">Internship Duration:</label>
+            <input type="text" id="duration" placeholder="e.g., 6 months" required>
+
+            <label for="salary">Expected Stipend/Salary:</label>
+            <input type="text" id="salary" placeholder="e.g., 5000 INR" required>
+
+            <button type="button" id="applyButton">Apply</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
