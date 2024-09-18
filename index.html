@@ -11,19 +11,19 @@
         <div class="navbar-container">
             <a href="#" class="navbar-logo">
                 <img src="https://i0.wp.com/services.cehpoint.co.in/wp-content/uploads/2023/03/Cehpoint-logo-1.png?w=152&ssl=1" alt="Cehpoint Logo">
-            </a>
+             </a>
             <button class="navbar-toggle" id="navbarToggle">
                 ☰
             </button>
-            <ul class="navbar-menu" id="item">
+                <ul class="navbar-menu" id="item">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Careers</a></li>
-            </ul>
+                <li><a href="#">Careers</a></li> 
+            </ul> 
 
-            <a href="#" class="navbar-btn">Careers</a>
+            <a href="#" class="navbar-btn">Careers</a>  
         </div>
 
     </nav>
@@ -59,10 +59,15 @@
             <label for="salary">Expected Stipend/Salary:</label>
             <input type="text" id="salary" placeholder="e.g., 5000 INR" required>
 
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
             <button type="button" id="applyButton">Apply</button>
         </form>
     </div> 
 
     <script src="script.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 </body>
 </html>

@@ -5,6 +5,7 @@ document.getElementById('applyButton').addEventListener('click', function() {
     const jobType = document.getElementById('jobType').value;
     const duration = document.getElementById('duration').value;
     const salary = document.getElementById('salary').value;
+   
 
     
     if (!name || !skills || !jobType || !duration || !salary) {
@@ -25,10 +26,14 @@ document.getElementById('applyButton').addEventListener('click', function() {
     `I look forward to hearing from you regarding this opportunity.\n\n` +
     `Best regards,\n${name}`;
 
+    
+
 
     // Redirect to mail client
     window.location.href = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
 });
+
 
 document.getElementById('navbarToggle').addEventListener('click', function() {
     const menu = document.getElementById('item');
