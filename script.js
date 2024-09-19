@@ -10,7 +10,7 @@ document.getElementById('applyButton').addEventListener('click', function() {
     
     // Check if all fields are filled
       if (!name || !skills || !jobType || !duration || !salary || !resumeLink || !appType) {
-alert('Please fill out all the fields.');
+   alert('Please fill out all the fields.');
      return;
     }
     
@@ -32,8 +32,4 @@ alert('Please fill out all the fields.');
      window.location.href = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
     
-    document.getElementById('navbarToggle').addEventListener('click', function() {
-    const menu = document.getElementById('item');
-    menu.classList.toggle('active');
-    });
     
