@@ -5,10 +5,11 @@ document.getElementById('applyButton').addEventListener('click', function() {
     const jobType = document.getElementById('jobType').value;
     const duration = document.getElementById('duration').value;
     const salary = document.getElementById('salary').value;
+    const resumeLink = document.getElementById('resumeLink').value;
    
 
     
-    if (!name || !skills || !jobType || !duration || !salary) {
+    if (!name || !skills || !jobType || !duration || !salary|| !resumeLink) {
         alert('Please fill out all the fields.');
         return; // Stop the function if validation fails
     }
@@ -23,6 +24,7 @@ document.getElementById('applyButton').addEventListener('click', function() {
     `Type of Internship/Job: ${jobType}\n` +
     `Expected Duration: ${duration}\n` +
     `Expected Stipend/Salary: ${salary}\n\n` +
+    `You can find my resume here: ${resumeLink}\n\n`+
     `I look forward to hearing from you regarding this opportunity.\n\n` +
     `Best regards,\n${name}`;
 
