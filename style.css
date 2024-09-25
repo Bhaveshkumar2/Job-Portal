@@ -1,11 +1,16 @@
- 
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+:root {
+    --primary-color: #007BFF; /* Primary color */
+    --secondary-color: #28A745; /* Accent color */
+    --background-color: #F4F4F4; /* Light background */
+    --success-color: #28a745; /* Green */
+}
 .navbar {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     color: white;
     padding: 10px 20px;
     display: flex;
@@ -24,12 +29,10 @@
     width: 100%;
 }
 
-
 .navbar-logo img {
     height: 50px;
     width: auto;
 }
-
 
  
 body {
@@ -39,6 +42,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: var(--background-color);
     
 }
 
@@ -50,38 +54,69 @@ body {
     width: 100%;
     max-width: 400px;
     margin-top:100px;
+    position: relative; /* Position form container above the overlay */
+    z-index: 2;
     
 }
 
 h1 {
+    font-size: 2em; /* Larger font size for the heading */
+    font-weight: bold; /* Make the heading bold */
     text-align: center;
     margin-bottom: 20px;
     color:black;
 }
 
 label {
-    display: block;
+    font-size: 1.1em; /* Slightly larger font size for labels */
+    font-weight: bold; /* Make labels bold */
     margin-bottom: 8px;
+    color:#007BFF;
+    
 }
 
 input, select {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
+    padding: 8px; /* Increased padding for input fields */
+    margin-bottom: 20px; /* Increased margin for better spacing */
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+input:focus, select:focus {
+    border-color: #28a745; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 9px rgba(40, 167, 69, 0.5); /* Add subtle shadow for effect */
+}
+
+input::placeholder {
+    color: #999; /* Subtle placeholder color */
+    opacity: 1; /* Ensure full opacity */
+}
+
+/* Hide placeholder when focused (optional for modern browsers) */
+input:focus::placeholder {
+    color: transparent; /* Hide placeholder on focus */
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #28a745;
+    padding: 12px; /* Increased padding for the button */
+    background-color: var(--secondary-color);
     color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    text-align: center; /* Center-align button text */
+    font-size: 1.1em; /* Slightly larger font size for buttons */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 12px; 
 }
 
+button:hover{
+    background-color: #e0a800;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
 
 
 .bg {
@@ -91,14 +126,39 @@ button {
     background-repeat: no-repeat; 
     width: 100%; 
     height: 100vh; 
+    position: relative;
+    opacity: 0.9;
+    
+}
+.bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Position overlay above background but below content */
 }
 @media (max-width: 600px) {
-    .container {
-        padding: 15px;
-        max-width: 90%;
+    .form-container {
+        padding: 20px; /* Ensure padding is appropriate on small screens */
+        max-width: 90%; /* Max width of the form container */
+    }
+
+    label {
+        margin-bottom: 10px; /* Adjust margin for smaller screens */
+    }
+
+    input, select {
+        padding: 14px; 
+        margin-bottom: 18px; 
+    }
+
+    button {
+        padding: 14px; 
+        font-size: 16px; 
     }
 }
-
-
 
 
