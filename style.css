@@ -86,13 +86,13 @@ input, select,textarea {
     border-radius: 4px;
 }
 input:focus,select:focus {
-    border-color:#007BFF; 
     outline: none; 
     box-shadow: 0 0 9px #007BFF;
     
 }
-
-
+ input[type="checkbox"]:focus{
+    box-shadow:none;
+}
 
 
 button {
@@ -123,9 +123,14 @@ button:disabled {
     margin-top: 10px;
     background-color: #f9f9f9;
 }
+
 h3 {
     color: #333;
 }
+.checked-label {
+    color: black; /* Change text color to black */
+}
+
 
 
 .bg {
