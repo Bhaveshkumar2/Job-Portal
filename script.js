@@ -64,8 +64,9 @@ document.getElementById('applyButton').addEventListener('click', function() {
                `${appType} Duration: ${duration}\n` +
                `Expected ${appType === 'Job' ? 'Salary' : 'Stipend'}: ${salary}\n\n` +
                `Resume Link: ${resumeLink}\n\n` +
+               "I have carefully read the job description and roles before applying\n\n" +
                `Thank you for considering my application.\n\n` +
-               `Best Regards,\n${name}`+"\n\nI have read the job description and roles before applying\n\n";
+               `Best Regards,\n${name}`;
 
   const mailtoLink = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = mailtoLink;
