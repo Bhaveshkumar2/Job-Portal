@@ -46,7 +46,7 @@ body {
 }
 
 .form-container {
-    background-color: transparent;
+    background-color:#333333;
     padding: 11px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -65,17 +65,40 @@ h1 {
     font-weight: bold; 
     text-align: center;
     margin-bottom: 20px;
-    color:black;
+    color:black
 }
+
 
 label {
     font-size: 1.1em;
     font-weight: bold; 
     margin-bottom: 8px;
-    color:honeydew;
+     color:honeydew;
+    
     
    
     
+}
+#skills-container {
+    margin: 20px;
+}
+.skill {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:white
+}
+.selected {
+    background-color: #007bff;
+    color: white;
+}
+.remove {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
 }
 
 input, select,textarea {

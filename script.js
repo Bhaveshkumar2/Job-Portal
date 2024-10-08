@@ -1,3 +1,40 @@
+const skillInput = document.getElementById('skill-input');
+const skillsContainer = document.getElementById('skills-container');
+
+skillInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter' && skillInput.value) {
+        const skill = skillInput.value.trim();
+        addSkill(skill);
+        skillInput.value = ''; // Clear input
+    }
+});
+
+function addSkill(skill) {
+    const skillDiv = document.createElement('div');
+    skillDiv.classList.add('skill');
+    skillDiv.textContent = skill;
+
+    // Create remove button
+    const removeButton = document.createElement('span');
+    removeButton.textContent = '✖';
+    removeButton.classList.add('remove');
+    removeButton.onclick = function () {
+        skillsContainer.removeChild(skillDiv);
+        
+    };
+
+    skillDiv.appendChild(removeButton);
+    
+    // Toggle selection on click
+    skillDiv.onclick = function () {
+        skillDiv.classList.toggle('selected');
+        
+    };
+
+    skillsContainer.appendChild(skillDiv);
+}
+
+
 document.getElementById('jobType').addEventListener('change', function() {
   const jobType = this.value;
   const jobDescription = document.getElementById('jobDescription');
@@ -43,14 +80,14 @@ document.getElementById('jobType').addEventListener('change', function() {
 document.getElementById('applyButton').addEventListener('click', function() {
   const name = document.getElementById('name').value;
   const phone = document.getElementById("phone").value;
-  const skills = document.getElementById('skills').value;
+  const skills = [...document.querySelectorAll('#skills-container .skill')].map(skillDiv => skillDiv.textContent.replace('✖', '').trim());
   const jobType = document.getElementById('jobType').value;
   const duration = document.getElementById('duration').value;
   const salary = document.getElementById('salary').value;
   const resumeLink = document.getElementById('resumeLink').value;
   const appType = document.getElementById('appType').value;
 
-  if (!name || !skills || !jobType || !duration || !salary || !resumeLink || !appType) {
+  if (!name || !skills || !jobType || !duration || !salary || !resumeLink || !appType|| !phone) {
       alert('Please fill out all the fields.');
       return;
   }
