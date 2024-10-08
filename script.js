@@ -42,6 +42,7 @@ document.getElementById('jobType').addEventListener('change', function() {
 
 document.getElementById('applyButton').addEventListener('click', function() {
   const name = document.getElementById('name').value;
+  const phone = document.getElementById("phone").value;
   const skills = document.getElementById('skills').value;
   const jobType = document.getElementById('jobType').value;
   const duration = document.getElementById('duration').value;
@@ -59,6 +60,7 @@ document.getElementById('applyButton').addEventListener('click', function() {
   const body = `Dear HR Team,\n\n` +
                `I would like to apply for the ${appType.toLowerCase()} position of ${jobType} at Cehpoint. Below are my details:\n\n` +
                `Name: ${name}\n` +
+               `Phone Number: ${phone}\n`+
                `Skills: ${skills}\n` +
                `Type of Internship/Job: ${jobType}\n` +
                `${appType} Duration: ${duration}\n` +
