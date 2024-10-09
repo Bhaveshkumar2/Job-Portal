@@ -1,6 +1,7 @@
 const skillInput = document.getElementById('skill-input');
 const skillsContainer = document.getElementById('skills-container');
 
+// Use 'keyup' instead of 'keypress' for mobile compatibility
 skillInput.addEventListener('keyup', function (e) {
     if (e.key === 'Enter' && skillInput.value) {
         const skill = skillInput.value.trim();
@@ -20,20 +21,19 @@ function addSkill(skill) {
     removeButton.classList.add('remove');
     removeButton.onclick = function () {
         skillsContainer.removeChild(skillDiv);
-        
     };
 
     skillDiv.appendChild(removeButton);
+
+    // Ensure touch and click both work for selection
     skillDiv.addEventListener('click', toggleSkillSelection);
     skillDiv.addEventListener('touchend', toggleSkillSelection);
-    
-    // Toggle selection on click
-    skillDiv.onclick = function () {
-        skillDiv.classList.toggle('selected');
-        
-    };
 
     skillsContainer.appendChild(skillDiv);
+}
+
+function toggleSkillSelection(event) {
+    this.classList.toggle('selected');
 }
 
 document.getElementById('jobType').addEventListener('change', function() {
