@@ -1,7 +1,7 @@
 const skillInput = document.getElementById('skill-input');
 const skillsContainer = document.getElementById('skills-container');
 
-skillInput.addEventListener('keypress', function (e) {
+skillInput.addEventListener('keyup', function (e) {
     if (e.key === 'Enter' && skillInput.value) {
         const skill = skillInput.value.trim();
         addSkill(skill);
@@ -33,7 +33,6 @@ function addSkill(skill) {
 
     skillsContainer.appendChild(skillDiv);
 }
-
 
 document.getElementById('jobType').addEventListener('change', function() {
   const jobType = this.value;
