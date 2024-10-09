@@ -100,8 +100,8 @@ document.getElementById('applyButton').addEventListener('click', function() {
     const resumeLink = document.getElementById('resumeLink').value;
     const appType = document.getElementById('appType').value;
 
-    if (!name || skills.length === 0 || !jobType || !duration || !salary || !resumeLink || !appType || !phone) {
-        alert('Please fill out all the fields and add at least one skill.');
+    if (!name|| !jobType || !duration || !salary || !resumeLink || !appType || !phone) {
+        alert('Please fill out all the fields.');
         return;
     }
 
