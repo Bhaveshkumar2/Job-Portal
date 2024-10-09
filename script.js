@@ -69,25 +69,34 @@ function addSkill(skill) {
     }
 }
 
-// Event listener for pressing enter
+// Event listener for pressing enter (Desktop and mobile compatible)
 skillInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter" && skillInput.value.trim() !== "") {
+    // Check for 'Enter' key and ensure input is not empty
+    if ((event.key === "Enter" || event.keyCode === 13) && skillInput.value.trim() !== "") {
         addSkill(skillInput.value.trim());
         skillInput.value = ""; // Clear the input
     }
 });
 
-  
+// Fallback for mobile devices using the 'input' event
+skillInput.addEventListener("input", function(event) {
+    if (event.inputType === "insertLineBreak" && skillInput.value.trim() !== "") {
+        addSkill(skillInput.value.trim());
+        skillInput.value = ""; // Clear the input
+    }
+});
+
 // Modify the apply button click handler to include skills
 document.getElementById('applyButton').addEventListener('click', function() {
     const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
     const jobType = document.getElementById('jobType').value;
     const duration = document.getElementById('duration').value;
     const salary = document.getElementById('salary').value;
     const resumeLink = document.getElementById('resumeLink').value;
     const appType = document.getElementById('appType').value;
 
-    if (!name || skills.length === 0 || !jobType || !duration || !salary || !resumeLink || !appType) {
+    if (!name || skills.length === 0 || !jobType || !duration || !salary || !resumeLink || !appType || !phone) {
         alert('Please fill out all the fields and add at least one skill.');
         return;
     }
@@ -104,7 +113,8 @@ document.getElementById('applyButton').addEventListener('click', function() {
                  `Resume Link: ${resumeLink}\n\n` +
                  "I have carefully read the job description and roles before applying\n\n" +
                  `Thank you for considering my application.\n\n` +
-                 `Best Regards,\n${name}`;
+                 `Best Regards,\n${name}` +
+                 `\nContact no:${phone}\n`;
 
     const mailtoLink = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
