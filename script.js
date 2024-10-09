@@ -24,6 +24,8 @@ function addSkill(skill) {
     };
 
     skillDiv.appendChild(removeButton);
+    skillDiv.addEventListener('click', toggleSkillSelection);
+    skillDiv.addEventListener('touchend', toggleSkillSelection);
     
     // Toggle selection on click
     skillDiv.onclick = function () {
