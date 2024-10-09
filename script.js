@@ -82,13 +82,13 @@ skillInput.addEventListener("keydown", function(event) {
 });
 
 // Fallback for mobile devices using 'input' event
-skillInput.addEventListener("input", function(event) {
-    // Detect newline character (used by mobile keyboards to signal "Go/Submit")
-    if (skillInput.value.includes("\n")) {
-        addSkill(skillInput.value.trim());
-        skillInput.value = ""; // Clear the input field
-    }
-});
+// skillInput.addEventListener("input", function(event) {
+//     // Detect newline character (used by mobile keyboards to signal "Go/Submit")
+//     if (skillInput.value.includes("Enter")) {
+//         addSkill(skillInput.value.trim());
+//         skillInput.value = ""; // Clear the input field
+//     }
+// });
 
 // Modify the apply button click handler to include skills
 document.getElementById('applyButton').addEventListener('click', function() {
