@@ -72,16 +72,19 @@ function addSkill(skill) {
 // Event listener for pressing enter (Desktop and mobile compatible)
 skillInput.addEventListener("keydown", function(event) {
     // Check for 'Enter', 'Go', or 'Submit' key on mobile and desktop
-    if ((event.key === "Enter" || event.keyCode === 13) && skillInput.value.trim() !== "") {
+    if (event.key === "Enter" || event.keyCode === 13) {
         event.preventDefault(); // Prevent the default action of 'Enter' key
-        addSkill(skillInput.value.trim());
-        skillInput.value = ""; // Clear the input field
+        if (skillInput.value.trim() !== "") {
+            addSkill(skillInput.value.trim());
+            skillInput.value = ""; // Clear the input field
+        }
     }
 });
 
 // Fallback for mobile devices using 'input' event
 skillInput.addEventListener("input", function(event) {
-    if (event.inputType === "insertText" && skillInput.value.includes("\n")) {
+    // Detect newline character (used by mobile keyboards to signal "Go/Submit")
+    if (skillInput.value.includes("\n")) {
         addSkill(skillInput.value.trim());
         skillInput.value = ""; // Clear the input field
     }
