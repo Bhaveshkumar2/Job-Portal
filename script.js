@@ -43,43 +43,41 @@ document.getElementById('jobType').addEventListener('change', function() {
 });
 
 // Skills Tagging Functionality
-const skillsInput = document.getElementById('skills-input');
-const skillsList = document.getElementById('skills-list');
 let skills = [];
 
-skillsInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ',') {
-        e.preventDefault();
-        const skill = skillsInput.value.trim();
-        if (skill && !skills.includes(skill.toLowerCase())) {
-            addSkill(skill);
-            skillsInput.value = '';
-        }
+// Function to add a skill
+function addSkill(skill) {
+    if (!skills.includes(skill)) { // Avoid duplicates
+        skills.push(skill); // Add the skill to the array
+        const skillElement = document.createElement("div");
+        skillElement.classList.add("skill");
+        skillElement.textContent = skill;
+
+        // Add remove button (cross) for each skill
+        const removeButton = document.createElement("span");
+        removeButton.classList.add("removeSkill");
+        removeButton.textContent = "×"; // Cross sign
+
+        // Add click and touch event to remove the skill
+        removeButton.addEventListener("click", () => {
+            skillsContainer.removeChild(skillElement);
+            skills = skills.filter(s => s !== skill); // Remove skill from array
+        });
+
+        skillElement.appendChild(removeButton);
+        skillsContainer.appendChild(skillElement);
+    }
+}
+
+// Event listener for pressing enter
+skillInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && skillInput.value.trim() !== "") {
+        addSkill(skillInput.value.trim());
+        skillInput.value = ""; // Clear the input
     }
 });
 
-function addSkill(skill) {
-    skills.push(skill.toLowerCase());
-
-    const skillTag = document.createElement('span');
-    skillTag.classList.add('skill-tag');
-    skillTag.textContent = skill;
-
-    const removeBtn = document.createElement('span');
-    removeBtn.classList.add('remove-skill');
-    removeBtn.innerHTML = '&times;';
-    removeBtn.setAttribute('data-skill', skill.toLowerCase());
-
-    removeBtn.addEventListener('click', function() {
-        const skillToRemove = this.getAttribute('data-skill');
-        skills = skills.filter(s => s !== skillToRemove);
-        skillsList.removeChild(skillTag);
-    });
-
-    skillTag.appendChild(removeBtn);
-    skillsList.appendChild(skillTag);
-}
-
+  
 // Modify the apply button click handler to include skills
 document.getElementById('applyButton').addEventListener('click', function() {
     const name = document.getElementById('name').value;

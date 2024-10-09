@@ -1,4 +1,5 @@
 /* Existing CSS remains unchanged */
+/* Existing CSS remains unchanged */
 
 *{
     box-sizing: border-box;
@@ -132,50 +133,74 @@ h3 {
 }
 
 /* New CSS for Skills Tags */
-#skills-container {
+/* Style for the skill input area */
+#skillInput {
+    width: 100%;
+    padding: 8px; /* Slightly larger padding for better usability */
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 2px solid #007bff; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* No outline on focus */
+  }
+  
+  /* Add focus effect to the input */
+  #skillInput:focus {
+    border-color: #0056b3; /* Darker border on focus */
+  }
+  
+  /* Style for skills container */
+  #skillsContainer {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    min-height: 40px;
-    background-color: white;
-}
-
-#skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.skill-tag {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    font-size: 0.9em;
-}
-
-.skill-tag .remove-skill {
-    margin-left: 8px;
+    margin-top: 10px; /* Space between input and skills */
+  }
+  
+  /* Style for each skill item */
+  .skill {
+    display: inline-flex; /* Change to inline-flex for better alignment */
+    align-items: center; /* Center content vertically */
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #007bff; /* Skill badge color */
+    color: white; /* Text color */
+    border-radius: 25px; /* Rounded corners */
+    font-size: 14px;
+    position: relative;
+  }
+  
+  /* Style for remove (cross) button */
+  .removeSkill {
+    margin-left: 10px;
     cursor: pointer;
+    color: white; /* Cross color */
     font-weight: bold;
-}
-
-#skills-input {
-    border: none;
-    flex: 1;
-    min-width: 150px;
-    padding: 5px;
-    font-size: 1em;
-}
-
-#skills-input:focus {
-    outline: none;
-}
+    font-size: 18px; /* Increase font size */
+    line-height: 1; /* Center vertically */
+  }
+  
+  /* Hover effect for remove button */
+  .removeSkill:hover {
+    color: #ff0000; /* Change color on hover */
+  }
+  
+  /* Mobile-specific adjustments */
+  @media (max-width: 600px) {
+    #skillInput {
+      font-size: 14px;
+      padding: 10px; /* Adjust padding */
+    }
+  
+    .skill {
+      font-size: 12px;
+      padding: 8px 12px; /* Adjust padding */
+    }
+  
+    .removeSkill {
+      font-size: 16px; /* Adjust cross button size */
+    }
+  }
+  
 
 /* Adjust form-container padding for better spacing */
 .form-container {
@@ -232,3 +257,4 @@ h3 {
         font-size: 16px; 
     }
 }
+
