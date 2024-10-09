@@ -28,12 +28,12 @@
 
             <label for="name">Name:</label>
             <input type="text" id="name" placeholder="Enter your name" required>
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number" required>
 
             <label for="skills">Skills:</label>
-            <input type="text" id="skill-input" placeholder="Enter your skills" required>
-            <div id="skills-container"></div>
+            <div id="skills-container">
+                <div id="skills-list"></div>
+                <input type="text" id="skills-input" placeholder="Enter a skill and press Enter" />
+            </div>
 
             <label for="jobType">Internship/Job Type:</label>
             <select id="jobType" required>
@@ -68,7 +68,6 @@
 
             <label for="resume">Resume Link (Google Drive):</label>
             <input type="url" id="resumeLink" placeholder="Enter your resume link" required>
-          
             <button type="button" id="applyButton" disabled>Apply</button>
         </form>
     </div>

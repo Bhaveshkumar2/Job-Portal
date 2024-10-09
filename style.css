@@ -1,3 +1,5 @@
+/* Existing CSS remains unchanged */
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -34,7 +36,6 @@
     width: auto;
 }
 
- 
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -47,12 +48,12 @@ body {
 
 .form-container {
     background-color:#333333;
-    padding: 11px;
+    padding: 20px; /* Increased padding for better spacing */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
-    margin-top:250px;
+    max-width: 500px; /* Increased max-width to accommodate tags */
+    margin-top:100px;
      z-index: 2; 
     
 }
@@ -65,41 +66,17 @@ h1 {
     font-weight: bold; 
     text-align: center;
     margin-bottom: 20px;
-    color:black
+    color:black;
 }
-
 
 label {
     font-size: 1.1em;
     font-weight: bold; 
     margin-bottom: 8px;
-     color:honeydew;
-    
-    
-   
-    
+    color:honeydew;
 }
-#skills-container {
-    margin: 20px;
-}
-.skill {
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #007bff;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color:white
-}
-.selected {
-    background-color: #007bff;
-    color: white;
-}
-.remove {
-    margin-left: 10px;
-    color: red;
-    cursor: pointer;
-}
+
+
 
 input, select,textarea {
     width: 100%;
@@ -154,7 +131,64 @@ h3 {
     color: black; /* Change text color to black */
 }
 
+/* New CSS for Skills Tags */
+#skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 40px;
+    background-color: white;
+}
 
+#skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.skill-tag {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.skill-tag .remove-skill {
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#skills-input {
+    border: none;
+    flex: 1;
+    min-width: 150px;
+    padding: 5px;
+    font-size: 1em;
+}
+
+#skills-input:focus {
+    outline: none;
+}
+
+/* Adjust form-container padding for better spacing */
+.form-container {
+    background-color:#333333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-top:100px;
+     z-index: 2; 
+    
+}
 
 .bg {
     background-image: url('img.jpg');
