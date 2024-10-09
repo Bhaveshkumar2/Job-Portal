@@ -47,8 +47,8 @@ let skills = [];
 
 // Function to add a skill
 function addSkill(skill) {
-    if (!skills.includes(skill)) { // Avoid duplicates
-        skills.push(skill); // Add the skill to the array
+    if (!skills.includes(skill) && skill.trim() !== "") { // Avoid duplicates and empty input
+        skills.push(skill.trim()); // Add the skill to the array
         const skillElement = document.createElement("div");
         skillElement.classList.add("skill");
         skillElement.textContent = skill;
@@ -58,7 +58,7 @@ function addSkill(skill) {
         removeButton.classList.add("removeSkill");
         removeButton.textContent = "×"; // Cross sign
 
-        // Add click and touch event to remove the skill
+        // Add click event to remove the skill
         removeButton.addEventListener("click", () => {
             skillsContainer.removeChild(skillElement);
             skills = skills.filter(s => s !== skill); // Remove skill from array
@@ -71,18 +71,19 @@ function addSkill(skill) {
 
 // Event listener for pressing enter (Desktop and mobile compatible)
 skillInput.addEventListener("keydown", function(event) {
-    // Check for 'Enter' key and ensure input is not empty
+    // Check for 'Enter', 'Go', or 'Submit' key on mobile and desktop
     if ((event.key === "Enter" || event.keyCode === 13) && skillInput.value.trim() !== "") {
+        event.preventDefault(); // Prevent the default action of 'Enter' key
         addSkill(skillInput.value.trim());
-        skillInput.value = ""; // Clear the input
+        skillInput.value = ""; // Clear the input field
     }
 });
 
-// Fallback for mobile devices using the 'input' event
+// Fallback for mobile devices using 'input' event
 skillInput.addEventListener("input", function(event) {
-    if (event.inputType === "insertLineBreak" && skillInput.value.trim() !== "") {
+    if (event.inputType === "insertText" && skillInput.value.includes("\n")) {
         addSkill(skillInput.value.trim());
-        skillInput.value = ""; // Clear the input
+        skillInput.value = ""; // Clear the input field
     }
 });
 
@@ -114,7 +115,7 @@ document.getElementById('applyButton').addEventListener('click', function() {
                  "I have carefully read the job description and roles before applying\n\n" +
                  `Thank you for considering my application.\n\n` +
                  `Best Regards,\n${name}` +
-                 `\nContact no:${phone}\n`;
+                 `\n${phone}\n`;
 
     const mailtoLink = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
