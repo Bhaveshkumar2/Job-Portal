@@ -1,41 +1,63 @@
 const skillInput = document.getElementById('skill-input');
-const skillsContainer = document.getElementById('skills-container');
+    const addSkillButton = document.getElementById('add-skill-button');
+    const skillsContainer = document.getElementById('skills-container');
 
-// Use 'keyup' instead of 'keypress' for mobile compatibility
-skillInput.addEventListener('keyup', function (e) {
-    if (e.key === 'Enter' && skillInput.value) {
-        const skill = skillInput.value.trim();
-        addSkill(skill);
-        skillInput.value = ''; // Clear input
-    }
-});
+    // Function to add the skill to the container
+    function addSkill(skill) {
+      const skillDiv = document.createElement('div');
+      skillDiv.classList.add('skill');
+      skillDiv.textContent = skill;
 
-function addSkill(skill) {
-    const skillDiv = document.createElement('div');
-    skillDiv.classList.add('skill');
-    skillDiv.textContent = skill;
-
-    // Create remove button
-    const removeButton = document.createElement('span');
-    removeButton.textContent = '✖';
-    removeButton.classList.add('remove');
-    removeButton.onclick = function () {
+      // Create a remove button
+      const removeButton = document.createElement('span');
+      removeButton.textContent = '✖';
+      removeButton.classList.add('remove');
+      removeButton.onclick = function () {
         skillsContainer.removeChild(skillDiv);
-    };
+      };
 
-    skillDiv.appendChild(removeButton);
+      skillDiv.appendChild(removeButton);
+      skillsContainer.appendChild(skillDiv);
+    }
 
-    // Ensure touch and click both work for selection
-    skillDiv.addEventListener('click', toggleSkillSelection);
-    skillDiv.addEventListener('touchend', toggleSkillSelection);
+    // Detect if the user is on mobile or desktop
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+    }
 
-    skillsContainer.appendChild(skillDiv);
-}
+    // Event listener for desktop ('Enter' key press)
+    function handleDesktopInput() {
+      skillInput.addEventListener('keyup', function (e) {
+        if (e.key === 'Enter' && skillInput.value.trim()) {
+          const skill = skillInput.value.trim();
+          addSkill(skill);
+          skillInput.value = ''; // Clear the input
+        }
+      });
+    }
 
-function toggleSkillSelection(event) {
-    this.classList.toggle('selected');
-}
+    // Event listener for mobile (Button click)
+    function handleMobileInput() {
+      addSkillButton.style.display = 'inline'; // Show the button on mobile
+      addSkillButton.addEventListener('click', function () {
+        const skill = skillInput.value.trim();
+        if (skill) {
+          addSkill(skill);
+          skillInput.value = ''; // Clear the input
+        }
+      });
+    }
 
+    // Initialize event listeners for both mobile and desktop
+    function init() {
+      if (isMobileDevice()) {
+        handleMobileInput(); // Mobile behavior
+      }
+      handleDesktopInput(); // Desktop behavior (always set this)
+    }
+
+    // Call init to start
+    init();
 document.getElementById('jobType').addEventListener('change', function() {
   const jobType = this.value;
   const jobDescription = document.getElementById('jobDescription');
