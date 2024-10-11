@@ -42,7 +42,7 @@ document.getElementById('jobType').addEventListener('change', function() {
     });
 });
 
-// Skills Tagging Functionality
+
 let skills = [];
 
 // Function to add a skill
@@ -81,14 +81,7 @@ skillInput.addEventListener("keydown", function(event) {
     }
 });
 
-// // Fallback for mobile devices using 'input' event
-// skillInput.addEventListener("input", function(event) {
-//     // Detect newline character (used by mobile keyboards to signal "Go/Submit")
-//     if (skillInput.value.includes("\n")||skillInput.value.includes("\r\n")) {
-//         addSkill(skillInput.value.trim());
-//         skillInput.value = ""; // Clear the input field
-//     }
-// });
+
 
 skillInput.addEventListener("blur", function() {
     if (skillInput.value.trim() !== "") {
